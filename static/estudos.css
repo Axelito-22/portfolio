@@ -1,0 +1,198 @@
+/* Styles for Estudos / Experiência page */
+
+.estudos-section {
+    padding: 80px 20px 120px;
+    text-align: center;
+}
+
+.estudos-title {
+    font-size: 2.6rem;
+    margin-bottom: 28px;
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.title-tab {
+    background: none;
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.title-tab:hover {
+    color: #6b7280;
+}
+
+.title-tab.active {
+    color: #0f1724;
+}
+
+.title-separator {
+    color: #000000;
+    font-weight: 400;
+}
+
+.estudos-tabs {
+    display: inline-flex;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: none;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.tab-button {
+    appearance: none;
+    border: 1px solid transparent;
+    background: #f3f4f6;
+    padding: 12px 34px;
+    font-size: 1rem;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.tab-button:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.tab-button:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.tab-button.active {
+    background: #ffffff;
+    color: #111827;
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+.tabs-content {
+    max-width: 980px;
+    margin: 24px auto 0;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.card.timeline-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+    text-align: left;
+}
+
+/* Vertical connector line between timeline icons */
+.card.timeline-card {
+    /* positioning kept for other absolute children if needed */
+    position: relative;
+}
+
+/* Connector only between icons: draw a short vertical segment under each icon except the last */
+.timeline-item:not(:last-child) .timeline-icon::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%; /* start just below the icon */
+    transform: translateX(-50%);
+    width: 2px; /* thin black connector */
+    height: 120px; /* length of segment between icons — increased so it visually connects */
+    background: #000; /* black line to match circle border */
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(15,23,36,0.03);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-icon {
+    min-width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #000; /* black border as requested */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f1724;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+    padding: 6px; /* space between outer circle and inner logo */
+}
+
+/* keep the icon above the connector line */
+.timeline-icon {
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-logo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%; /* make the image itself circular to fit inside the outer circle */
+    object-fit: cover;
+}
+
+.timeline-body {
+    flex: 1;
+}
+
+.timeline-date {
+    color: #9aa0a6;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.timeline-title {
+    font-size: 1.2rem;
+    margin: 0 0 6px 0;
+    color: #0f1724;
+}
+
+.timeline-sub {
+    color: #6b7280;
+}
+
+/* Make links in timeline entries use the same blue as the hero animation */
+.timeline-sub a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+.timeline-sub a:hover,
+.timeline-sub a:focus {
+    color: #3498db; /* keep same blue on hover/focus to match animation */
+    text-decoration: underline; /* subtle feedback */
+}
+
+@media (max-width: 768px) {
+    .estudos-title { font-size: 1.8rem; }
+    .tab-button { padding: 10px 18px; }
+    .timeline-item { gap: 12px; }
+    .timeline-icon { min-width: 46px; height: 46px; }
+    .timeline-item:not(:last-child) .timeline-icon::after { height: 64px; }
+}

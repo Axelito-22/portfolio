@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Axel Pereira - Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="icon" href="static/images/icon.png" type="image/png">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a id="logo-home" href="{{ url_for('home') }}">Axel Pereira</a></h1>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}" class="{% if request.path == url_for('home') %}active{% endif %}">Início</a></li>
+                    <li><a href="{{ url_for('sobre') }}" class="{% if request.path == url_for('sobre') %}active{% endif %}">Sobre mim</a></li>
+                    <li><a href="{{ url_for('curriculo') }}" class="{% if request.path == url_for('curriculo') %}active{% endif %}">Currículo</a></li>
+                    <li><a href="{{ url_for('pitch') }}" class="{% if request.path == url_for('pitch') %}active{% endif %}">Pitch</a></li>
+                    <li><a href="{{ url_for('estudos') }}" class="{% if request.path == url_for('estudos') %}active{% endif %}">Estudos</a></li>
+                    <li><a href="{{ url_for('projetos') }}" class="{% if request.path == url_for('projetos') %}active{% endif %}">Projetos</a></li>
+                    <li><a href="{{ url_for('linkedin') }}" class="{% if request.path == url_for('linkedin') %}active{% endif %}">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        <!-- Conteúdo específico de cada página vai aqui -->
+        {% endblock %}
+    </main>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

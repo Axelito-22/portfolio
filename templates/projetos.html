@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Projetos - Axel Pereira{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='projetos.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="projetos-section container">
+    <h2 class="projetos-title">Os meus Projetos</h2>
+
+    <div class="projet-grid">
+        <article class="project-card">
+            <div class="card-meta">Projeto escolar <span class="project-type">Website</span></div>
+            <h3 class="project-title">Projeto de aptidão profissional</h3>
+            <div class="tag-list">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Html</span>
+                <span class="tag">Css</span>
+            </div>
+            <p class="project-desc"> Website para a organização de jogos desportivos na Ilha da Madeira</p>
+            <div class="card-actions">
+                <div class="left-actions">
+                    <a class="btn btn-outline" href="https://projeto-pap-5pg1.onrender.com/" target="_blank"
+                        rel="noopener noreferrer">Preview</a>
+                </div>
+                <div class="right-actions">
+                    <a class="btn btn-light" href="https://github.com/Axelito-22/Projeto-de-aptidao-profissinal.git"
+                        target="_blank" rel="noopener noreferrer">Github</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+{% endblock %}

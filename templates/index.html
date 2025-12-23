@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Início - Axel Pereira{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-container">
+        <div class="hero-left">
+            <h1 class="hero-title">Olá, sou<br><span class="hero-name" id="typed-name"></span></h1>
+            <p class="hero-sub">Um talento em formação, apaixonado por converter imaginação em inovação digital.</p>
+
+            <div class="hero-buttons">
+                <a href="{{ url_for('curriculo') }}" class="btn btn-dark">Ver Currículo</a>
+                <a href="{{ url_for('sobre') }}" class="btn btn-dark">Saber Mais</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <img src="{{ url_for('static', filename='images/ft.jpg') }}" alt="Axel Pereira" class="hero-image">
+        </div>
+    </div>
+</section>
+{% endblock %}

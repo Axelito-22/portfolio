@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Estudos - Axel Pereira{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='estudos.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="estudos-section container">
+    <h2 class="estudos-title">
+        <button class="title-tab active" data-tab="estudos">Estudos</button>
+        <span class="title-separator">|</span>
+        <button class="title-tab" data-tab="estagio">Estágio</button>
+    </h2>
+
+    <div class="tabs-content">
+        <!-- Tab Estudos -->
+        <div class="tab-pane active" id="estudos">
+            <div class="card timeline-card">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img class="timeline-logo" alt="ESTGA" src="{{ url_for('static', filename='images/estga.webp') }}"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22 viewBox=%220 0 120 120%22><rect width=%22120%22 height=%22120%22 rx=%2220%22 fill=%22%2314b8a6%22/><text x=%2250%25%22 y=%2252%25%22 font-family=%22Arial, Helvetica, sans-serif%22 font-size=%2228%22 fill=%22%23fff%22 text-anchor=%22middle%22 alignment-baseline=%22central%22>estga</text></svg>'" />
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-date">Set 2025 - Jul 2027</div>
+                        <h3 class="timeline-title">CTESP em Programação de Sistemas de Informação</h3>
+                        <div class="timeline-sub">Escola Superior de Tecnologia e Gestão | <a href="https://www.ua.pt/pt/curso/403" target="_blank" rel="noopener noreferrer">Universidade de Aveiro</a></div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img class="timeline-logo" alt="EBS" src="{{ url_for('static', filename='images/ebs.jpeg') }}"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22 viewBox=%220 0 120 120%22><rect width=%22120%22 height=%22120%22 rx=%2220%22 fill=%22%23346cb0%22/><text x=%2250%25%22 y=%2252%25%22 font-family=%22Arial, Helvetica, sans-serif%22 font-size=%2226%22 fill=%22%23fff%22 text-anchor=%22middle%22 alignment-baseline=%22central%22>EBS</text></svg>'" />
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-date">Set 2022 - Jul 2025</div>
+                        <h3 class="timeline-title">Curso Profissional de Programador Informático</h3>
+                        <div class="timeline-sub">Escola Básica e Secundaria /PE da Calheta | <a href="https://escoladigital.madeira.gov.pt/ebspecalheta/" target="_blank" rel="noopener noreferrer">Calheta</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Estágio -->
+        <div class="tab-pane" id="estagio">
+            <div class="card timeline-card">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img class="timeline-logo" alt="Empresa" src="{{ url_for('static', filename='images/arditi.jpg') }}"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22 viewBox=%220 0 120 120%22><rect width=%22120%22 height=%22120%22 rx=%2220%22 fill=%22%234f46e5%22/><text x=%2250%25%22 y=%2252%25%22 font-family=%22Arial, Helvetica, sans-serif%22 font-size=%2224%22 fill=%22%23fff%22 text-anchor=%22middle%22 alignment-baseline=%22central%22>EST</text></svg>'" />
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-date">Abr 2025 - Jul 2025</div>
+                        <h3 class="timeline-title">Estágio Curricular - Programador Informático</h3>
+                        <div class="timeline-sub">Duração: 3 meses | <a href="https://www.arditi.pt/pt/" target="_blank" rel="noopener noreferrer">Arditi  </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.title-tab');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetTab = this.getAttribute('data-tab');
+
+            // Remove active class from all buttons and panes
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+
+            // Add active class to clicked button and corresponding pane
+            this.classList.add('active');
+            document.getElementById(targetTab).classList.add('active');
+        });
+    });
+});
+</script>
+{% endblock %}

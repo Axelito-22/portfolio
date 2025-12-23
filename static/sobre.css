@@ -1,0 +1,88 @@
+/* Styles specific for the Sobre page */
+.sobre-section {
+    padding: 80px 20px;
+}
+
+.sobre-title {
+    font-size: 3.2rem;
+    margin: 0 0 40px 0;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+}
+
+.sobre-container {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sobre-text {
+    flex: 1 1 58%;
+    text-align: left; /* descrição alinhada à esquerda */
+}
+
+.sobre-desc {
+    font-size: 1.05rem; /* ligeiramente maior que corpo */
+    max-width: 640px; /* controla largura do bloco de texto como no modelo */
+    margin: 0;
+    line-height: 1.9;
+    color: #000000; /* tom de cinzento para o texto */
+}
+
+.sobre-desc + .sobre-desc {
+    margin-top: 1.6rem; /* espaço entre os parágrafos */
+}
+
+.sobre-media {
+    flex: 0 0 360px; /* imagem maior à direita */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sobre-image {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 14px 40px rgba(16,24,40,0.12);
+    border: 6px solid rgba(255,255,255,0.9);
+}
+
+@media (max-width: 1024px) {
+    .sobre-container {
+        gap: 2rem;
+    }
+
+    .sobre-media {
+        flex: 0 0 300px;
+    }
+
+    .sobre-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sobre-container {
+        flex-direction: column-reverse; /* imagem em cima em telas pequenas */
+        text-align: center;
+    }
+
+    .sobre-text {
+        text-align: center;
+    }
+
+    .sobre-media {
+        flex: 0 0 auto;
+    }
+
+    .sobre-image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+}

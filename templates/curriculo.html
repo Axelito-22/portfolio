@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Currículo - Axel Pereira{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1 class="page-title">Currículo</h1>
+
+    <div class="curriculo-container">
+
+
+        <div class="curriculo-media">
+            <img class="curriculo-img" alt="Currículo Axel Pereira" src="{{ url_for('static', filename='images/curriculo.jpg') }}"
+                 onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22350%22 viewBox=%220 0 500 350%22><rect width=%22500%22 height=%22350%22 fill=%22%23f3f4f6%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Arial, Helvetica, sans-serif%22 font-size=%2224%22 fill=%22%236b7280%22 text-anchor=%22middle%22 alignment-baseline=%22central%22>Currículo não encontrado</text></svg>'" />
+
+            <div class="curriculo-actions">
+                <!-- Download the image as a fallback; if you have a PDF, change the filename to files/curriculo.pdf -->
+                <a class="btn" href="{{ url_for('static', filename='images/curriculo.png') }}" download>
+                    Descarregar CV
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock %}

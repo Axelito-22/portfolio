@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre - Axel Pereira{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='sobre.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="sobre-section container">
+    <h2 class="sobre-title">Sobre mim</h2>
+    <div class="sobre-container">
+        <div class="sobre-text">
+            <p class="sobre-desc">Olá! Sou estudante de Programação na ESTGA - Universidade de Aveiro, com um enorme
+                interesse por tecnologia e desenvolvimento de software. Tenho 18 anos e estou a explorar o mundo da
+                programação, sempre à procura de aprender novas linguagens e desenvolver as minhas competências.</p>
+
+            <p class="sobre-desc">Sou um programador apaixonado pela criação de soluções simples para problemas
+                complexos. Desde cedo que a tecnologia me despertou curiosidade, e foi essa vontade de perceber “como
+                tudo funciona” que me levou ao mundo da programação.</p>
+        </div>
+
+        <div class="sobre-media">
+            <img src="{{ url_for('static', filename='images/ft.jpg') }}" alt="Foto de Axel Pereira" class="sobre-image">
+        </div>
+    </div>
+</section>
+{% endblock %}

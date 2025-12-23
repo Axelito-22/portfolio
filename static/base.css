@@ -1,0 +1,393 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    font-weight: 300; /* peso mais fino para o corpo */
+    color: #333;
+    background-color: #666666; /* cinzento muito claro */
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: #A09D9D;
+    border-bottom: 1px solid #eef2f5;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+    position: relative;
+}
+
+.logo h1 {
+    color: #000000;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* Make logo/name link look like plain text and show pointer on hover */
+.logo h1 a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+.logo h1 a:focus {
+    outline: none;
+}
+
+/* Navigation */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #000000;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* center the nav in the header */
+.navbar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* active / selected nav item */
+.nav-links a.active,
+.nav-links a:focus {
+    background: #111827;
+    color: #fff !important;
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+/* Main Content */
+main {
+    margin-top: 100px; /* Compensa o header fixo maior */
+    min-height: calc(100vh - 100px);
+}
+
+/* Hero Section (para a página inicial) */
+.hero {
+    background: transparent;
+    color: #000000;
+    padding: 100px 0 100px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+    justify-content: space-between;
+}
+
+.hero-left {
+    flex: 1 1 55%;
+}
+
+.hero-right {
+    flex: 0 0 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    line-height: 1.05;
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    color: #000000dc;
+}
+
+.hero-name {
+    color: #000000; /* destaque azul uniforme */
+    display: inline-block;
+}
+
+.hero-sub {
+    font-size: 1.05rem;
+    color: #000000;
+    max-width: 640px;
+    line-height: 1.8;
+    margin-bottom: 1.8rem;
+}
+
+.hero-image {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 14px 40px rgba(16,24,40,0.12);
+    border: 6px solid rgba(255,255,255,0.9);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-dark {
+    background: #0f1724;
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 10px;
+    border: 2px solid #0f1724;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-dark.btn-outline {
+    background: transparent;
+    color: #08458a;
+}
+
+@media (max-width: 1024px) {
+    .hero-right { flex: 0 0 300px; }
+    .hero-image { width: 300px; height: 300px; }
+}
+
+@media (max-width: 768px) {
+    .hero-container { flex-direction: column-reverse; text-align: center; }
+    .hero-left { width: 100%; }
+    .hero-right { margin-bottom: 30px; }
+    .hero-title { font-size: 2.6rem; }
+    .hero-image { width: 180px; height: 180px; }
+    .hero-sub { text-align: center; }
+}
+
+/* Typed name: JS-driven cursor blink */
+.hero-name.typing {
+    border-right: .12em solid currentColor; /* caret matches text color */
+    padding-right: 2px;
+    box-sizing: content-box;
+    /* keep only the caret blink; text color fixed to the chosen blue */
+    animation: blink-caret .8s step-end infinite;
+    color: #ffffff;
+}
+
+@keyframes color-change {
+    /* Legacy: keep as uniform blue so any use of this animation stays consistent */
+    0% { color: #3498db; }
+    50% { color: #3498db; }
+    100% { color: #3498db; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: currentColor; }
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #030303;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .logo h1 {
+        margin-bottom: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .nav-links li {
+        margin: 0 0.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    main {
+        margin-top: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        display: block;
+        margin: 10px auto;
+        max-width: 200px;
+    }
+}
+
+/* Currículo page image styling */
+.curriculo-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0 24px; /* reduced margins so it fits better */
+}
+.curriculo-img {
+    max-width: 430px; /* increased so image appears slightly bigger */
+    width: auto;
+    height: auto;
+    max-height: calc(100vh - 180px); /* cap height so it fits inside viewport below header */
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Page title centering for single-page headings */
+.page-title {
+    text-align: center;
+    width: 100%;
+    margin: 8px 0 18px;
+    font-size: 2rem;
+    color : #000000;
+}
+
+@media (max-width: 768px) {
+    .curriculo-img { max-width: 370px; max-height: calc(100vh - 180px); }
+}
+
+@media (max-width: 480px) {
+    .curriculo-img { max-width: 290px; max-height: calc(100vh - 160px); }
+}
+
+/* Two-column layout for currículo page */
+.curriculo-container {
+    display: flex;
+    flex-direction: column; /* stack content so image appears centered */
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+}
+.curriculo-content {
+    width: 100%;
+    max-width: 760px;
+    color: #000000;
+    text-align: center;
+    padding-right: 0;
+}
+.curriculo-media {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 450px;
+}
+.curriculo-actions { width: 100%; display:flex; justify-content:center;color: #000000; }
+.curriculo-actions .btn { padding: 10px 18px; }
+
+@media (max-width: 900px) {
+    .curriculo-container { flex-direction: column-reverse; align-items: center; }
+    .curriculo-media { flex: 0 0 auto; }
+    .curriculo-content { text-align: center; padding-right: 0; }
+}
